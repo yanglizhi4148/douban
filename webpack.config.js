@@ -1,5 +1,7 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
+var htmlWebpackPlugin = require('html-webpack-plugin');
+
 
 module.exports = {
   entry: './src/main.js',
@@ -20,12 +22,42 @@ module.exports = {
         }
       },
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
+          test:/\.less$/,
+          loader:'style-loader!css-loader!autoprefixer-loader!less-loader'
+      },
+            
+      {
+          test:/\.js$/,
+          loader:'babel-loader',
+          exclude:/node_modules/,
+          options:{
+              presets:['es2015'],
+              plugins:['transform-runtime']
+          }
+      },      
+      {
+           test:/\.css$/,
+            loader:'style-loader!css-loader!autoprefixer-loader'
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+            test:/\.vue$/,
+            loader:'vue-loader'
+      },
+      {
+            test:/vue-preview.src.*?js$/,
+            loader:'babel-loader',
+            options:{
+                presets:['es2015'],
+                plugins:['transform-runtime']
+            }
+      },
+      // {
+      //   test: /\.js$/,
+      //   loader: 'babel-loader',
+      //   exclude: /node_modules/
+      // },
+      {
+        test: /\.(png|jpg|gif|svg|ttf)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
@@ -52,6 +84,9 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
+    new htmlWebpackPlugin({
+            template:'./index.html'
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'

@@ -1,15 +1,20 @@
 <template>
-  <div id="app">
-  </div>
+    <div>
+        <HeaderVue></HeaderVue>
+        <router-view></router-view>
+    </div>
 </template>
-
-<script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+<script type="text/ecmascript-6">
+    import HeaderVue from './components/partials/head.vue';
+    export default {
+        data(){
+            return {}
+        },
+        components:{
+            HeaderVue
+        }
     }
-  }
-}
 </script>
+<style>
+
+</style>
