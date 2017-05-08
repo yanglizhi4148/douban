@@ -6,8 +6,8 @@
   </div>
 </template>
 <script>
-  import HeaderVue from '@/components/partials/Header.vue'
-  import FooterVue from '@/components/partials/Footer.vue'
+  import HeaderVue from './components/partials/Header.vue'
+  import FooterVue from './components/partials/Footer.vue'
   export default {
     data(){
       return {}
