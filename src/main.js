@@ -1,32 +1,20 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-// import VueResource from 'vue-resource';
-import MintUi from 'mint-ui';
-import VueMui from 'vue-mui';
-// import 'mint-ui/lib/style.css';
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+import MintUi from 'mint-ui'
+import 'mint-ui/lib/style.css'
+import 'muiv3/dist/css/mui.css'
 
-//引入mui
-// import './assets/render/mui/dist/css/mui.css';
+Vue.config.productionTip = false
 
-//引入自己的文件
-import App from './app.vue';
-// import Home from './components/home/home.vue';
-
-//安装插件
-Vue.use(VueRouter);
-// Vue.use(VueResource);
 Vue.use(MintUi);
 
-//引入路由
-import routes from './router';
-//创建路由对象并配置
-let router = new VueRouter({
-    routes
-});
-
-//创建vue实例
+/* eslint-disable no-new */
 new Vue({
-    el: '#app',
-    router,
-    render: c => c(App)
-});
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: { App }
+})

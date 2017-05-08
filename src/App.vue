@@ -1,19 +1,22 @@
 <template>
-    <div>
-        <HeaderVue></HeaderVue>
-        <router-view></router-view>
-    </div>
+  <div>
+    <HeaderVue></HeaderVue>
+    <router-view></router-view>
+    <FooterVue></FooterVue>
+  </div>
 </template>
-<script type="text/ecmascript-6">
-    import HeaderVue from './components/partials/head.vue';
-    export default {
-        data(){
-            return {}
-        },
-        components:{
-            HeaderVue
-        }
+<script>
+  import HeaderVue from '@/components/partials/Header.vue'
+  import FooterVue from '@/components/partials/Footer.vue'
+  export default {
+    data(){
+      return {}
+    },
+    components:{
+      HeaderVue,
+      FooterVue
     }
+  }
 </script>
 <style>
 
