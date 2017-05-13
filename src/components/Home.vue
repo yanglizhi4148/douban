@@ -1,6 +1,6 @@
 <template>
   <div>
-      我是主体
+      here is main content
   </div>
 </template>
 <script>
